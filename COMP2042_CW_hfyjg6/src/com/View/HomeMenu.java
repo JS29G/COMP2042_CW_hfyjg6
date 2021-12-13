@@ -62,6 +62,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean menuClicked;
     private boolean guideClicked;
 
+    //Create Home Menu
     public HomeMenu(GameFrame owner,Dimension area){
 
         this.setFocusable(true);
