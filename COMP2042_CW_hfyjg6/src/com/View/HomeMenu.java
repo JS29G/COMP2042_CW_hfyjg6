@@ -265,7 +265,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             owner.enableGameBoard();
         }
         else if(guideButton.contains(p)){
-            System.out.println("fail");
             owner.enableGuideFrame();
         }
         else if(menuButton.contains(p)) {
