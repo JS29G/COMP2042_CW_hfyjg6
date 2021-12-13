@@ -62,7 +62,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean menuClicked;
     private boolean guideClicked;
 
-    //Create Home Menu
+    private Image background;
+
     public HomeMenu(GameFrame owner,Dimension area){
 
         this.setFocusable(true);
@@ -78,8 +79,8 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
         Dimension btnDim = new Dimension(area.width / 3, area.height / 12);
         startButton = new Rectangle(btnDim);
-        menuButton = new Rectangle(btnDim);
         guideButton = new Rectangle(btnDim);
+        menuButton = new Rectangle(btnDim);
 
         borderStoke = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND,0,DASHES,0);
         borderStoke_noDashes = new BasicStroke(BORDER_SIZE,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND);
@@ -183,7 +184,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setFont(buttonFont);
 
         int x = (menuFace.width - startButton.width) / 2;
-        int y =(int) ((menuFace.height - startButton.height) * 0.8);
+        int y =(int) ((menuFace.height - startButton.height) * 0.6);
 
         //startbutton
         startButton.setLocation(x,y);
@@ -235,13 +236,19 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
             g2d.drawString(MENU_TEXT,x,y);
         }
 
+        //Guide button
+        x = menuButton.x;
+        y = menuButton.y;
+
+        y *= 1.2;
+
         guideButton.setLocation(x,y);
 
         x = (int)(guideButton.getWidth() - guideTxtRect.getWidth()) / 2;
         y = (int)(guideButton.getHeight() - guideTxtRect.getHeight()) / 2;
 
         x += guideButton.x;
-        y += guideButton.y + (startButton.height * 0.9);
+        y += guideButton.y + (menuButton.height * 0.9);
 
         if(guideClicked){
             Color tmp = g2d.getColor();
